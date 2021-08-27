@@ -143,7 +143,7 @@ select @b-@a;
 @郭江伟 同学提到了两个点，都非常好，有去实际验证。结论是这样的：<br>
 第一，hexdump看出来没改应该是WAL机制生效了，要过一会儿，或者把库shutdown看看。<br>
 第二，binlog没写是MySQL Server层知道行的值没变，所以故意不写的，这个是在row格式下的策略。你可以把binlog_format 改成statement再验证下。</p>
-</blockquote><p><img src="https://static001.geekbang.org/resource/image/09/77/09c1073f99cf71d2fb162a716b5fa577.jpg" alt=""></p>
+</blockquote>
                          </div>
                         </div> 
                        </div> 

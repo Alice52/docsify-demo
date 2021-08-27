@@ -143,7 +143,7 @@ select * from t where id&gt;1 for update;
 </code></pre><p>这个查询语句加锁的范围就是next-key lock (-∞, supremum]。</p><p>验证方法的话，你可以使用下面的操作序列。你可以在图4中看到显示的结果。</p><p><img src="https://static001.geekbang.org/resource/image/12/65/12eb6a38c347203f60df72ecaea95565.png" alt=""></p><center><span class="reference">图3 复现空表的next-key lock</span></center><p><img src="https://static001.geekbang.org/resource/image/53/9f/531b6556ffc82c6b02f9a010a3ceb09f.png" alt=""></p><center><span class="reference">图4 show engine innodb status 部分结果</span></center><p>评论区留言点赞板：</p><blockquote>
 <p>@老杨同志 给出了正确的分析和SQL语句验证方法；<br>
 @库淘淘 指出了show engine innodb status验证结论。</p>
-</blockquote><p>赞这些思考和反馈。</p><p><img src="https://static001.geekbang.org/resource/image/09/77/09c1073f99cf71d2fb162a716b5fa577.jpg" alt=""></p>
+</blockquote><p>赞这些思考和反馈。</p>
                          </div>
                         </div> 
                        </div> 
@@ -580,7 +580,9 @@ select * from t where id&gt;1 for update;
         </div>
         </div> 
         <div class="bd">
-        老师你好，问个带子查询的delete&#47;update&#47;insert问题，Delete from A where name in(<br>   Select name from B where time&lt;’2019-01-23 11:11:12’<br>)  这条语句删除A表记录之前是不是也会把表 B满足条件的记录也会给锁住呢?<br>我试验了一下会锁住B表记录的，有没有其他办法不让锁B表呢?
+        老师你好，问个带子查询的delete&#47;update&#47;insert问题，Delete from A where name in(
+<br>   Select name from B where time&lt;’2019-01-23 11:11:12’
+<br>)  这条语句删除A表记录之前是不是也会把表 B满足条件的记录也会给锁住呢?<br>我试验了一下会锁住B表记录的，有没有其他办法不让锁B表呢?
         </div> 
         <span class="time">2019-01-23</span> 
                 <div class="reply">
